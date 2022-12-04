@@ -1,4 +1,4 @@
-import { galleryItems } from './gallery-items.js';
+import { galleryItems } from './gallery-items';
 // Change code below this line
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
@@ -11,10 +11,11 @@ gallery.insertAdjacentHTML('beforeend', createGalleryMarkup(galleryItems));
 function createGalleryMarkup(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
-      return `
-        <li> <a class="gallery__item" href="${original}">
+      return `<div class="gallery__item">
+        <a class="gallery__link" href="${original}">
         <img class="gallery__image" src="${preview}" alt="${description}" title="${description}" />
-        </a></li>`;
+        </a>
+        </div>`;
     })
     .join('');
 }
