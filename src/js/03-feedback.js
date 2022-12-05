@@ -9,7 +9,7 @@ const messageEl = document.querySelector('textarea');
 formEl.addEventListener('input', throttle(inputHandler, 500));
 formEl.addEventListener('submit', submitHandler);
 
-function inputHandler(evt) {
+function inputHandler() {
   const email = emailEl.value;
   const message = messageEl.value;
   localStorage.setItem(STORAGE_KEY, JSON.stringify({ email, message }));
